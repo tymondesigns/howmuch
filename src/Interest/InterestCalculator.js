@@ -79,7 +79,7 @@ class InterestCalculator {
      * @return {Number}
      */
     calculateMonthlyRepayment () {
-        var rate = this.getMonthlyInterestRate();
+        let rate = this.getMonthlyInterestRate();
 
         return this.amount * rate / (1 - (Math.pow(1/(1 + rate), this.term)));
     }
