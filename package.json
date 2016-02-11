@@ -2,7 +2,7 @@
   "name": "pay.js",
   "amdName": "pay.js",
   "globalName": "Pay",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Some useful financial calculators",
   "main": "dist/pay.js",
   "jsnext:main": "src/pay.js",
@@ -44,6 +44,7 @@
     "rimraf": "^2.5.1",
     "rollup": "^0.25.3",
     "rollup-plugin-babel": "^2.3.9",
+    "rollup-plugin-node-resolve": "^1.4.0",
     "uglify-js": "^2.6.1"
   }
 }

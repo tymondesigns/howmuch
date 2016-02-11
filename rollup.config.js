@@ -1,4 +1,5 @@
 import babel from 'rollup-plugin-babel';
+import nodeResolve from 'rollup-plugin-node-resolve';
 // import pkg from './package.json';
 
 export default {
@@ -9,6 +10,7 @@ export default {
             exclude: 'node_modules/**',
             babelrc: false,
             presets: ['es2015-rollup']
-        })
+        }),
+        nodeResolve()
     ]
 };
