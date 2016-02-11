@@ -1,7 +1,8 @@
 import test from 'ava';
 import NationalInsuranceCalculator from '../../../src/Tax/Income/NationalInsuranceCalculator';
+import data from '../../../src/Tax/data/2015-16';
 
-let calc = (amount, selfEmployed = false) => new NationalInsuranceCalculator(amount, selfEmployed);
+let calc = (amount, selfEmployed = false) => new NationalInsuranceCalculator(amount, selfEmployed, data.nationalInsuranceData);
 
 test('it should instantiate the class', t => {
     t.true(calc(2000) instanceof NationalInsuranceCalculator);

@@ -1,11 +1,11 @@
 import TaxBandCalculator from '../Utils/TaxBandCalculator';
-import data from '../data/2015-16/income';
 
 class IncomeTaxCalculator extends TaxBandCalculator {
 
-    constructor (gross) {
+    constructor (gross, data) {
         super({ gross, bands: data.INCOME_TAX_BANDS });
         this.gross = gross;
+        this.data = data;
     }
 
     /**
@@ -14,13 +14,13 @@ class IncomeTaxCalculator extends TaxBandCalculator {
      * @return {Number}
      */
     getTotalTaxable () {
-        if (this.gross < data.TAX_FREE_ALLOWANCE_LIMIT) {
-            let taxable = this.gross - data.TAX_FREE_ALLOWANCE;
+        if (this.gross < this.data.TAX_FREE_ALLOWANCE_LIMIT) {
+            let taxable = this.gross - this.data.TAX_FREE_ALLOWANCE;
 
             return taxable < 0 ? 0 : taxable;
-        } else if (this.gross < data.TAX_FREE_ALLOWANCE_UPPER_LIMIT) {
-            let amountOver = this.gross - data.TAX_FREE_ALLOWANCE_LIMIT,
-                adjustedTFA = data.TAX_FREE_ALLOWANCE - (amountOver * data.TAX_FREE_ALLOWANCE_LIMIT_RATE);
+        } else if (this.gross < this.data.TAX_FREE_ALLOWANCE_UPPER_LIMIT) {
+            let amountOver = this.gross - this.data.TAX_FREE_ALLOWANCE_LIMIT,
+                adjustedTFA = this.data.TAX_FREE_ALLOWANCE - (amountOver * this.data.TAX_FREE_ALLOWANCE_LIMIT_RATE);
 
             return this.gross - adjustedTFA;
         }

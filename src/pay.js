@@ -1,7 +1,17 @@
-import IncomeTaxCalculator from 'Income/IncomeTaxCalculator';
-import NationalInsuranceCalculator from 'Income/NationalInsuranceCalculator';
+import IncomeTaxCalculator from './Tax/Income/IncomeTaxCalculator';
+import NationalInsuranceCalculator from './Tax/Income/NationalInsuranceCalculator';
+import data from './Tax/data/2015-16/index';
 
-export default {
-    IncomeTaxCalculator,
-    NationalInsuranceCalculator
-};
+class Pay {
+
+    static incomeTax (amount) {
+        return new IncomeTaxCalculator(amount, data.incomeTaxData);
+    }
+
+    static nationalInsurance (amount, selfEmployed = false) {
+        return new NationalInsuranceCalculator(amount, selfEmployed, data.nationalInsuranceData);
+    }
+
+}
+
+export default Pay;

@@ -1,7 +1,8 @@
 import test from 'ava';
 import IncomeTaxCalculator from '../../../src/Tax/Income/IncomeTaxCalculator';
+import data from '../../../src/Tax/data/2015-16';
 
-let calc = amount => new IncomeTaxCalculator(amount);
+let calc = amount => new IncomeTaxCalculator(amount, data.incomeTaxData);
 
 test('it should instantiate the class', t => {
     t.true(calc(2000) instanceof IncomeTaxCalculator);
