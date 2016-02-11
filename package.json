@@ -2,7 +2,7 @@
   "name": "pay.js",
   "amdName": "pay.js",
   "globalName": "Pay",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "description": "Some useful financial calculators",
   "main": "dist/pay.js",
   "jsnext:main": "src/pay.js",
@@ -17,7 +17,7 @@
     "test:ava": "ava --require=\"babel-core/register\"",
     "lint": "eslint src test",
     "prepublish": "npm run build",
-    "release": "npm run build && npm test && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
+    "release": "npm run build && npm test && git add -A && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
   },
   "repository": {
     "type": "git",
