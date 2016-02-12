@@ -8,4 +8,4 @@ class HowMuch {
 
 }
 
-export default Pay;
+export default HowMuch;

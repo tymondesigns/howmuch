@@ -1,6 +1,6 @@
 import test from 'ava';
 import HowMuch from '../src/HowMuch';
-import Tax from '../src/Tax';
+import Tax from '../src/Tax/Tax';
 
 
 test('it should instantiate the class', t => {
