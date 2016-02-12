@@ -1,6 +1,6 @@
 import Tax from './Tax/Tax';
 
-class Pay {
+class HowMuch {
 
     static tax (amount) {
         return new Tax(amount);
