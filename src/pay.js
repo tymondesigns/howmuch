@@ -1,9 +1,9 @@
-import Tax from './Tax';
+import Tax from './Tax/Tax';
 
 class Pay {
 
-    static tax (options) {
-        return new Tax(options);
+    static tax (amount) {
+        return new Tax(amount);
     }
 
 }

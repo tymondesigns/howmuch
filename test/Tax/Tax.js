@@ -1,5 +1,5 @@
 import test from 'ava';
-import Tax from '../../src/Tax';
+import Tax from '../../src/Tax/Tax';
 import IncomeTaxCalculator from '../../src/Tax/Income/IncomeTaxCalculator';
 import NationalInsuranceCalculator from '../../src/Tax/Income/NationalInsuranceCalculator';
 

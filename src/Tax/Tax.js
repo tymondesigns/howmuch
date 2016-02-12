@@ -16,6 +16,14 @@ class Tax {
         return new NationalInsuranceCalculator(this.amount, selfEmployed, data.nationalInsuranceData);
     }
 
+    calculateAnnual () {
+        return this.incomeTax().calculateAnnual() + this.nationalInsurance().calculateAnnual();
+    }
+
+    netIncomeAnnual () {
+        return this.amount - this.calculateAnnual();
+    }
+
 }
 
 export default Tax;
