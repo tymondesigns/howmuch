@@ -12,6 +12,5 @@ export default {
         }),
         json(),
         nodeResolve()
-    ],
-    // banner: `/*! ${pkg.name} v${pkg.version} | (c) ${new Date().getFullYear()} ${pkg.author} | ${pkg.homepage} */`
+    ]
 };
