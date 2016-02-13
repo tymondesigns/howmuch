@@ -1,3 +1,7 @@
 language: node_js
 node_js:
   - 4
+before_script:
+  - npm install -g codeclimate-test-reporter
+after_success:
+  - './node_modules/.bin/nyc report --reporter=text-lcov | codeclimate

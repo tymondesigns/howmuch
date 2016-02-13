@@ -14,7 +14,7 @@
     "minify": "uglifyjs $npm_package_main --mangle-regex=\"/^(classCallCheck|components|normalizeName|add|clean|process|collect|create|nodes|itemsOffline)$/\" --mangle-props -cm -o $npm_package_minified_main -p relative --in-source-map ${npm_package_main}.map --source-map ${npm_package_minified_main}.map",
     "size": "size=$(gzip-size $npm_package_minified_main) && echo \"gzip size: $size / $(pretty-bytes $size)\"",
     "test": "npm-run-all lint test:ava",
-    "test:ava": "ava --require=\"babel-core/register\"",
+    "test:ava": "nyc ava --require=\"babel-core/register\"",
     "lint": "eslint src test",
     "prepublish": "npm run build",
     "release": "npm run build && npm test && git add -A && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
@@ -40,6 +40,7 @@
     "eslint": "^1.10.3",
     "gzip-size-cli": "^1.0.0",
     "npm-run-all": "^1.5.1",
+    "nyc": "^5.6.0",
     "pretty-bytes-cli": "^1.0.0",
     "rimraf": "^2.5.1",
     "rollup": "^0.25.3",
