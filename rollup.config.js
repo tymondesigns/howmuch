@@ -9,7 +9,6 @@ export default {
             babelrc: false,
             presets: ['es2015-rollup']
         }),
-        json(),
         nodeResolve()
     ]
 };
