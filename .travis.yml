@@ -4,4 +4,4 @@ node_js:
 before_script:
   - npm install -g codeclimate-test-reporter
 after_success:
-  - './node_modules/.bin/nyc report --reporter=text-lcov | codeclimate
+  - './node_modules/.bin/nyc report --reporter=text-lcov | codeclimate'
