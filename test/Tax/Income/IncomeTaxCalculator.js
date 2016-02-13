@@ -15,11 +15,11 @@ test('it should calculate the total taxable amount', t => {
 });
 
 test('it should calculate annual/monthly income tax', t => {
-    t.is(1880, calc(20000).calculateAnnual());
-    t.is(4880, calc(35000).calculateAnnual());
-    t.is(58142.8, calc(160000).calculateAnnual());
+    t.is(1880, calc(20000).annual());
+    t.is(4880, calc(35000).annual());
+    t.is(58142.8, calc(160000).annual());
 
-    t.is(156.66666666666666, calc(20000).calculateMonthly());
+    t.is(156.67, calc(20000).month());
 });
 
 test('it should calculate net after income tax', t => {

@@ -1,27 +1,36 @@
 import IncomeTaxCalculator from './Income/IncomeTaxCalculator';
 import NationalInsuranceCalculator from './Income/NationalInsuranceCalculator';
+import utils from './Utils/utils';
 import data from './data/2015-16';
 
 class Tax {
 
-    constructor (amount) {
-        this.amount = amount;
+    constructor (options) {
+        this.opts = options;
     }
 
     incomeTax () {
-        return new IncomeTaxCalculator(this.amount, data.incomeTaxData);
+        return new IncomeTaxCalculator(this.opts.amount, data.incomeTaxData);
     }
 
-    nationalInsurance (selfEmployed = false) {
-        return new NationalInsuranceCalculator(this.amount, selfEmployed, data.nationalInsuranceData);
+    nationalInsurance () {
+        return new NationalInsuranceCalculator(this.opts.amount, this.opts.selfEmployed, data.nationalInsuranceData);
     }
 
-    calculateAnnual () {
-        return this.incomeTax().calculateAnnual() + this.nationalInsurance().calculateAnnual();
+    annual () {
+        return utils.roundTo(this.incomeTax().annual() + this.nationalInsurance().annual());
     }
 
-    netIncomeAnnual () {
-        return this.amount - this.calculateAnnual();
+    month () {
+        return utils.roundTo(this.annual() / 12);
+    }
+
+    week () {
+        return utils.roundTo(this.annual() / 52);
+    }
+
+    day () {
+        return utils.roundTo(this.week() / 7);
     }
 
 }

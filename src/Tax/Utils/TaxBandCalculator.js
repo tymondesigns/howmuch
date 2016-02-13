@@ -1,3 +1,4 @@
+import utils from './utils';
 
 class TaxBandCalculator {
 
@@ -34,7 +35,7 @@ class TaxBandCalculator {
      * @return  {Number}
      */
     get net () {
-        return this.gross - this.calculateAnnual();
+        return this.gross - this.annual();
     }
 
     /**
@@ -69,7 +70,7 @@ class TaxBandCalculator {
      *
      * @return {Number}
      */
-    calculateAnnual () {
+    annual () {
         let total = 0,
             taxable = this.getTotalTaxable();
 
@@ -82,7 +83,7 @@ class TaxBandCalculator {
             if (amount > 0) taxable = band.min;
         }
 
-        return total;
+        return utils.roundTo(total);
     }
 
     /**
@@ -90,8 +91,26 @@ class TaxBandCalculator {
      *
      * @return  {Number}
      */
-    calculateMonthly () {
-        return this.calculateAnnual() / 12;
+    month () {
+        return utils.roundTo(this.annual() / 12);
+    }
+
+    /**
+     * Calculate the amount of weekly Tax given the gross income
+     *
+     * @return  {Number}
+     */
+    week () {
+        return utils.roundTo(this.annual() / 52);
+    }
+
+    /**
+     * Calculate the amount of daily Tax given the gross income
+     *
+     * @return  {Number}
+     */
+    day () {
+        return utils.roundTo(this.week() / 7);
     }
 
 }

@@ -9,9 +9,9 @@ test('it should instantiate the class', t => {
 });
 
 test('it should calculate annual/monthly national insurance for NON self-employed', t => {
-    t.is(1432.8, calc(20000).calculateAnnual());
-    t.is(3232.7999999999997, calc(35000).calculateAnnual());
-    t.is(6471.4, calc(160000).calculateAnnual());
+    t.is(1432.8, calc(20000).annual());
+    t.is(3232.8, calc(35000).annual());
+    t.is(6471.4, calc(160000).annual());
 
-    t.is(119.39999999999999, calc(20000).calculateMonthly());
+    t.is(119.4, calc(20000).month());
 });
