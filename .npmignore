@@ -3,3 +3,5 @@
 .travis.yml
 rollup.config.js
 test/
+coverage
+.nyc_output
