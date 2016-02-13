@@ -2,6 +2,12 @@ import TaxBandCalculator from '../Utils/TaxBandCalculator';
 
 class IncomeTaxCalculator extends TaxBandCalculator {
 
+    /**
+     * Instantiate the Class
+     *
+     * @param  {Number}  gross
+     * @param  {Object}  data
+     */
     constructor (gross, data) {
         super({ gross, bands: data.INCOME_TAX_BANDS });
         this.gross = gross;

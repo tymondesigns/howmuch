@@ -34,7 +34,7 @@ class TaxBandCalculator {
      *
      * @return  {Number}
      */
-    get net () {
+    net () {
         return this.gross - this.annual();
     }
 

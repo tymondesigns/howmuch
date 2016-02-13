@@ -23,7 +23,7 @@ test('it should calculate annual/monthly income tax', t => {
 });
 
 test('it should calculate net after income tax', t => {
-    t.is(18120, calc(20000).net);
-    t.is(30120, calc(35000).net);
-    t.is(101857.2, calc(160000).net);
+    t.is(18120, calc(20000).net());
+    t.is(30120, calc(35000).net());
+    t.is(101857.2, calc(160000).net());
 });
