@@ -1,4 +1,4 @@
-import TaxBandCalculator from '../Utils/TaxBandCalculator';
+import TaxBandCalculator from '../TaxBandCalculator';
 
 class IncomeTaxCalculator extends TaxBandCalculator {
 

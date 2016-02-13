@@ -1,6 +1,6 @@
 import IncomeTaxCalculator from './Income/IncomeTaxCalculator';
 import NationalInsuranceCalculator from './Income/NationalInsuranceCalculator';
-import utils from './Utils/utils';
+import utils from '../utils';
 import data from './data/2015-16';
 
 class Tax {
