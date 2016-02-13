@@ -2,7 +2,6 @@ import test from 'ava';
 import HowMuch from '../src/HowMuch';
 import Tax from '../src/Tax/Tax';
 
-
 test('it should instantiate the class', t => {
     t.true(new HowMuch instanceof HowMuch);
 });
@@ -12,7 +11,7 @@ test('it should get an instance of Tax', t => {
 });
 
 test('it should get the income tax amount', t => {
-    let tax = HowMuch.tax({ amount: 20000, selfEmployed: false }).incomeTax();
+    let tax = HowMuch.incomeTax({ amount: 20000, selfEmployed: false });
 
     t.is(1880, tax.annual());
     t.is(156.67, tax.month());
@@ -21,7 +20,7 @@ test('it should get the income tax amount', t => {
 });
 
 test('it should get the national insurance amount', t => {
-    let ni = HowMuch.tax({ amount: 20000, selfEmployed: false }).nationalInsurance();
+    let ni = HowMuch.nationalInsurance({ amount: 20000, selfEmployed: false });
 
     t.is(1432.8, ni.annual());
     t.is(119.4, ni.month());
@@ -36,4 +35,15 @@ test('it should get the total tax amount', t => {
     t.is(276.07, tax.month());
     t.is(63.71, tax.week());
     t.is(9.1, tax.day());
+});
+
+test('it should get the net income', t => {
+    let income = HowMuch.income({ amount: 20000, selfEmployed: false });
+
+    t.is(16687.2, income.annual());
+    t.is(1390.6, income.month());
+    t.is(320.91, income.week());
+    t.is(45.84, income.day());
+
+    t.is(.83, income.percentage());
 });
