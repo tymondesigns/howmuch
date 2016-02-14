@@ -26,14 +26,14 @@ class HowMuch {
     }
 
     /**
-     * Get an instance of the Tax class to calculate tax alone.
+     * Get an instance of the Tax class to calculate overall tax alone.
      *
      * @param   {Object}  options
      *
      * @return  {Tax}
      */
     static tax (options) {
-        return new Tax(options, false);
+        return new Tax(options);
     }
 
     /**
@@ -45,7 +45,7 @@ class HowMuch {
      * @return  {Tax}
      */
     static income (options) {
-        return new Tax(options, true);
+        return new Tax(options).net();
     }
 
     /**

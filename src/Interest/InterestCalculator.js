@@ -82,7 +82,7 @@ class InterestCalculator {
     monthlyRepayment () {
         let rate = this.getMonthlyInterestRate();
 
-        return utils.roundTo(this.amount * rate / (1 - (Math.pow(1/(1 + rate), this.term))));
+        return utils.round(this.amount * rate / (1 - (Math.pow(1/(1 + rate), this.term))));
     }
 
     /**
@@ -91,7 +91,7 @@ class InterestCalculator {
      * @return {Number}
      */
     totalRepayment () {
-        return utils.roundTo(this.monthlyRepayment() * this.term);
+        return utils.round(this.monthlyRepayment() * this.term);
     }
 
     /**
@@ -100,7 +100,7 @@ class InterestCalculator {
      * @return {Number}
      */
     totalInterest () {
-        return utils.roundTo(this.totalRepayment() - this.amount);
+        return utils.round(this.totalRepayment() - this.amount);
     }
 
 }

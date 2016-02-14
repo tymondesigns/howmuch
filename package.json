@@ -14,7 +14,8 @@
     "minify": "uglifyjs $npm_package_main --mangle-regex=\"/^(classCallCheck|components|normalizeName|add|clean|process|collect|create|nodes|itemsOffline)$/\" --mangle-props -cm -o $npm_package_minified_main -p relative --in-source-map ${npm_package_main}.map --source-map ${npm_package_minified_main}.map",
     "size": "size=$(gzip-size $npm_package_minified_main) && echo \"gzip size: $(pretty-bytes $size)\"",
     "test": "npm-run-all lint test:ava",
-    "test:ava": "nyc ava --require=\"babel-core/register\"",
+    "test:ava": "nyc ava",
+    "test:report": "nyc report --reporter=text-lcov",
     "lint": "eslint src test",
     "prepublish": "npm run build",
     "release": "npm run build && npm test && git add -A && git commit -am $npm_package_version && git tag $npm_package_version && git push && git push --tags && npm publish"
@@ -47,5 +48,11 @@
     "rollup-plugin-babel": "^2.3.9",
     "rollup-plugin-node-resolve": "^1.4.0",
     "uglify-js": "^2.6.1"
+  },
+  "babel": {
+    "presets": ["es2015"]
+  },
+  "ava": {
+    "require": ["babel-core/register"]
   }
 }

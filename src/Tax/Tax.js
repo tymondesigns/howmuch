@@ -5,9 +5,9 @@ import data from './data/2015-16';
 
 class Tax {
 
-    constructor (options, net = false) {
+    constructor (options) {
         this.opts = options;
-        this.getNet = net;
+        this.getNet = false;
     }
 
     /**
@@ -42,8 +42,19 @@ class Tax {
      *
      * @return  {Number}
      */
-    net () {
+    calcNet () {
         return this.opts.amount - this.totalTax();
+    }
+
+    /**
+     * Update to return net instead of tax
+     *
+     * @return  {Tax}
+     */
+    net (getNet = true) {
+        this.getNet = getNet;
+
+        return this;
     }
 
     /**
@@ -52,7 +63,7 @@ class Tax {
      * @return  {Number}
      */
     calculate () {
-        return utils.roundTo(this.getNet ? this.net() : this.totalTax());
+        return utils.round(this.getNet ? this.calcNet() : this.totalTax());
     }
 
     /**
@@ -61,7 +72,7 @@ class Tax {
      * @return  {Number}
      */
     annual () {
-        return utils.roundTo(this.calculate());
+        return utils.round(this.calculate());
     }
 
     /**
@@ -70,7 +81,7 @@ class Tax {
      * @return  {Number}
      */
     month () {
-        return utils.roundTo(this.annual() / 12);
+        return utils.round(this.annual() / 12);
     }
 
     /**
@@ -79,7 +90,7 @@ class Tax {
      * @return  {Number}
      */
     week () {
-        return utils.roundTo(this.annual() / 52);
+        return utils.round(this.annual() / 52);
     }
 
     /**
@@ -88,7 +99,7 @@ class Tax {
      * @return  {Number}
      */
     day () {
-        return utils.roundTo(this.week() / 7);
+        return utils.round(this.week() / 7);
     }
 
     /**
@@ -97,7 +108,7 @@ class Tax {
      * @return  {[type]}
      */
     percentage () {
-        return utils.roundTo(this.net() / this.opts.amount);
+        return utils.round((this.calcNet() / this.opts.amount) * 100);
     }
 
 }

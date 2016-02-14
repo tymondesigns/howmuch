@@ -45,5 +45,5 @@ test('it should get the net income', t => {
     t.is(320.91, income.week());
     t.is(45.84, income.day());
 
-    t.is(.83, income.percentage());
+    t.is(83.44, income.percentage());
 });

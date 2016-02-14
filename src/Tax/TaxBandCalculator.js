@@ -83,7 +83,7 @@ class TaxBandCalculator {
             if (amount > 0) taxable = band.min;
         }
 
-        return utils.roundTo(total);
+        return utils.round(total);
     }
 
     /**
@@ -92,7 +92,7 @@ class TaxBandCalculator {
      * @return  {Number}
      */
     month () {
-        return utils.roundTo(this.annual() / 12);
+        return utils.round(this.annual() / 12);
     }
 
     /**
@@ -101,7 +101,7 @@ class TaxBandCalculator {
      * @return  {Number}
      */
     week () {
-        return utils.roundTo(this.annual() / 52);
+        return utils.round(this.annual() / 52);
     }
 
     /**
@@ -110,7 +110,7 @@ class TaxBandCalculator {
      * @return  {Number}
      */
     day () {
-        return utils.roundTo(this.week() / 7);
+        return utils.round(this.week() / 7);
     }
 
 }
