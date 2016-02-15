@@ -2,7 +2,7 @@
   "name": "howmuch",
   "amdName": "howmuch",
   "globalName": "HowMuch",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Some useful financial calculators",
   "main": "dist/howmuch.js",
   "jsnext:main": "src/howmuch.js",
@@ -50,9 +50,13 @@
     "uglify-js": "^2.6.1"
   },
   "babel": {
-    "presets": ["es2015"]
+    "presets": [
+      "es2015"
+    ]
   },
   "ava": {
-    "require": ["babel-core/register"]
+    "require": [
+      "babel-core/register"
+    ]
   }
 }

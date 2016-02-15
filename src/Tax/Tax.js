@@ -5,6 +5,11 @@ import data from './data/2015-16';
 
 class Tax {
 
+    /**
+     * Instantiate the Class
+     *
+     * @param  {Object}  options
+     */
     constructor (options) {
         this.opts = options;
         this.getNet = false;
