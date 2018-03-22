@@ -1,0 +1,62 @@
+{
+  "name": "howmuch",
+  "version": "0.8.0",
+  "description": "Some useful financial calculators",
+  "main": "dist/howmuch.js",
+  "module": "dist/howmuch.es.js",
+  "types": "index.d.ts",
+  "scripts": {
+    "compile": "tsc --pretty",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "build": "microbundle -e src/index.ts",
+    "clean": "rimraf dist",
+    "check": "run-s compile lint test",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "prebuild": "run-s format check clean",
+    "prepublish": "npm run build",
+    "coverage": "codecov",
+    "docs": "typedoc --mode modules --out ./docs src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tymondesigns/howmuch.git"
+  },
+  "author": "Sean Tymon <tymon148@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tymondesigns/howmuch/issues"
+  },
+  "homepage": "https://github.com/tymondesigns/howmuch",
+  "devDependencies": {
+    "@types/jest": "^21.1.6",
+    "codecov": "^1.0.1",
+    "jest": "^21.2.1",
+    "microbundle": "^0.4.0",
+    "npm-run-all": "^4.1.2",
+    "prettier": "^1.8.2",
+    "rimraf": "^2.5.1",
+    "ts-jest": "^21.2.1",
+    "tslint": "^5.8.0",
+    "typedoc": "^0.9.0",
+    "typescript": "^2.6.1"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "printWidth": 100
+  },
+  "jest": {
+    "moduleFileExtensions": ["ts", "js"],
+    "transform": {
+      "^.+\\.(ts)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testMatch": ["<rootDir>/src/**/*.spec.ts"],
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  },
+  "dependencies": {
+    "chitu": "^0.8.0"
+  }
+}
